@@ -1,4 +1,6 @@
-package concesionario;
+package concesionario.clases;
+
+import concesionario.interfaces.Entregable;
 
 public class Coche extends Vehiculo implements Entregable{
 	

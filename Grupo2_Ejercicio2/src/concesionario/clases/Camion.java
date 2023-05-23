@@ -1,6 +1,8 @@
-package concesionario;
+package concesionario.clases;
 
 import java.util.Objects;
+
+import concesionario.interfaces.Entregable;
 
 public class Camion extends Vehiculo implements Entregable{
 	
