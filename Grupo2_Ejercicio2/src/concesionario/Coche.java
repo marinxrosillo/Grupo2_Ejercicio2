@@ -1,6 +1,6 @@
 package concesionario;
 
-public class Coche extends Vehiculo {
+public class Coche extends Vehiculo implements Entregable{
 	
 	//Atributos
 	private String tipo;
@@ -43,6 +43,12 @@ public class Coche extends Vehiculo {
 			result = true;
 		}
 		return result;
+	}
+
+	@Override
+	public void entregar() {
+		System.out.println("Coche entregado");
+		
 	}
 	
 	
