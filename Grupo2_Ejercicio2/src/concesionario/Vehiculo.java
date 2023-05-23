@@ -1,5 +1,7 @@
 package concesionario;
 
+import java.util.Objects;
+
 public class Vehiculo implements Comparable<Vehiculo> {
 
 	//Atributos
@@ -55,4 +57,22 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	public int compareTo(Vehiculo o) {
 		return this.getPrecio() - o.getPrecio();
 	}
+
+	@Override
+	public String toString() {
+		return "Vehiculo [marca=" + this.marca + ", modelo=" + this.modelo + ", anyo=" + this.anyo + ", precio=" + this.precio + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Vehiculo nuevo = (Vehiculo) obj;
+		boolean result = false;
+		
+		if(this.getMarca().equals(nuevo) && this.getModelo().equals(nuevo) 
+				&& this.anyo.equals(nuevo) && this.getPrecio() == nuevo.getPrecio()) {
+			result = true;
+		}
+		return result;
+	}
+	
 }
