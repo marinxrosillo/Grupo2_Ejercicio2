@@ -12,7 +12,7 @@ public class Camion extends Vehiculo implements Entregable{
 	//Constructor
 	public Camion(String marca, String modelo, String anyo, int precio, double carga) {
 		super(marca, modelo, anyo, precio);
-		this.carga = carga;
+		setCarga(carga);
 	}
 
 	//Getters y Setters
@@ -21,7 +21,11 @@ public class Camion extends Vehiculo implements Entregable{
 	}
 
 	public void setCarga(double carga) {
-		this.carga = carga;
+		if (carga > 0) {
+			this.carga = carga;
+		} else {
+			throw new ArithmeticException("ERROR. La carga no puede ser inferior a 0");
+		}
 	}
 	//Métodos
 
