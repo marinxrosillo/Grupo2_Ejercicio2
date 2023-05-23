@@ -14,8 +14,6 @@ public class Concesionario {
 		super();
 		this.inventario = new TreeSet<>();
 	}
-	
-	//Metodos
 
 	
 }
