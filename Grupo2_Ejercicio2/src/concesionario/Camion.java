@@ -5,12 +5,12 @@ import java.util.Objects;
 public class Camion extends Vehiculo{
 	
 	//Atributos
-	private double carga;
+	private int carga;
 
 	//Constructor
-	public Camion(String marca, String modelo, String anyo, int precio, double carga) {
+	public Camion(String marca, String modelo, String anyo, int precio, int carga) {
 		super(marca, modelo, anyo, precio);
-		this.carga = carga;
+		setCarga(carga);
 	}
 
 	//Getters y Setters
@@ -18,8 +18,12 @@ public class Camion extends Vehiculo{
 		return carga;
 	}
 
-	public void setCarga(double carga) {
-		this.carga = carga;
+	public void setCarga(int carga) {
+		if (carga > 0) {
+			this.carga = carga;
+		} else {
+			throw new ArithmeticException("ERROR. El precio no puede ser inferior a 0");
+		}
 	}
 	//Métodos
 

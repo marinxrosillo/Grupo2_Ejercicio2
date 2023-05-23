@@ -9,8 +9,8 @@ public class Coche extends Vehiculo {
 	//Constructor
 	public Coche(String marca, String modelo, String anyo, int precio, String tipo, int capacidad) {
 		super(marca, modelo, anyo, precio);
-		this.tipo = tipo;
-		this.capacidad = capacidad;
+		setTipo(tipo);
+		setCapacidad(capacidad);
 		
 	}
 
@@ -20,7 +20,11 @@ public class Coche extends Vehiculo {
 	}
 
 	public void setTipo(String tipo) {
-		this.tipo = tipo;
+		if (!tipo.isEmpty()) {
+			this.tipo = tipo;
+		} else {
+			throw new ArithmeticException("ERROR. La marca no puede estar vacía.");
+		}
 	}
 
 	public int getCapacidad() {
@@ -28,7 +32,11 @@ public class Coche extends Vehiculo {
 	}
 
 	public void setCapacidad(int capacidad) {
-		this.capacidad = capacidad;
+		if (capacidad > 0) {
+			this.capacidad = capacidad;
+		} else {
+			throw new ArithmeticException("ERROR. El precio no puede ser inferior a 0");
+		}
 	}
 	@Override
 	public String toString() {
