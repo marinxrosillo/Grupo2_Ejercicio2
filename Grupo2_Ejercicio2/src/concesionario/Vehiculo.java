@@ -1,15 +1,15 @@
 package concesionario;
 
-public class Vehiculo {
+public class Vehiculo implements Comparable<Vehiculo> {
 
 	//Atributos
 	private String marca;
 	private String modelo;
 	private String anyo;
-	private double precio;
+	private int precio;
 	
 	//Constructor
-	public Vehiculo(String marca, String modelo, String anyo, double precio) {
+	public Vehiculo(String marca, String modelo, String anyo, int precio) {
 		super();
 		this.marca = marca;
 		this.modelo = modelo;
@@ -42,11 +42,17 @@ public class Vehiculo {
 		this.anyo = anyo;
 	}
 
-	public double getPrecio() {
+	public int getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(int precio) {
 		this.precio = precio;
+	}
+
+	//Metodos
+	@Override
+	public int compareTo(Vehiculo o) {
+		return this.getPrecio() - o.getPrecio();
 	}
 }
