@@ -59,35 +59,19 @@ public class Concesionario {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		// Método para buscar vehículos por marca, modelo y año
-	    public List<Vehiculo> buscarVehiculos(String marca, String modelo, int anyo) {
-	        List<Vehiculo> vehiculosEncontrados = new ArrayList<>();
+		public List<Vehiculo> buscarVehiculos(String marca, String modelo, String anyo) {
+		    List<Vehiculo> vehiculosEncontrados = new ArrayList<>();
 
-	        for (Vehiculo vehiculo : inventario) {
-	            if (vehiculo.getMarca().equalsIgnoreCase(marca) &&
-	                    vehiculo.getModelo().equalsIgnoreCase(modelo) &&
-	                    vehiculo.getAnyo().equals(anyo){
-	                vehiculosEncontrados.add(vehiculo);
-	            }
-	        }
+		    for (Vehiculo vehiculo : inventario) {
+		        if (vehiculo.getMarca().equalsIgnoreCase(marca) &&
+		                vehiculo.getModelo().equalsIgnoreCase(modelo) &&
+		                vehiculo.getAnyo().equals(anyo)) {
+		            vehiculosEncontrados.add(vehiculo);
+		        }
+		    }
 
-	        return vehiculosEncontrados;
-	    }
+		    return vehiculosEncontrados;
+		}
 	
 }
