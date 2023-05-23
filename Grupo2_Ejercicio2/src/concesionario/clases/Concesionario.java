@@ -1,4 +1,4 @@
-package concesionario;
+package concesionario.clases;
 
 import java.util.Set;
 import java.util.TreeSet;
