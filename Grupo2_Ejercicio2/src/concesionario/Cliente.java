@@ -1,6 +1,5 @@
 package concesionario;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -70,12 +69,13 @@ public class Cliente implements Comparable<Cliente> {
 		return result;
 	}
 
-	//Metodos
+	//Metodo
 	@Override
 	public int compareTo(Cliente o) {
 		return this.getNombre().compareTo(o.getNombre());
 	}  
 	
+	//Metodo comprar
 	public void comprarCoche (Vehiculo ve) {
 		this.vehiculosComprados.add(ve);
 	}
