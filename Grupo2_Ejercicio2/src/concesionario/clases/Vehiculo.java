@@ -7,14 +7,16 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	private String modelo;
 	private String anyo;
 	private int precio;
+	private boolean entregado;
 	
 	//Constructor
-	public Vehiculo(String marca, String modelo, String anyo, int precio) {
+	public Vehiculo(String marca, String modelo, String anyo, int precio, boolean entregado) {
 		super();
 		setMarca(marca);
 		setModelo(modelo);
 		setAnyo(anyo);
 		setPrecio(precio);
+		this.entregado = entregado;
 	}
 
 	//Getters y Setters
@@ -64,6 +66,14 @@ public class Vehiculo implements Comparable<Vehiculo> {
 		} else {
 			throw new ArithmeticException("ERROR. El precio no puede ser inferior a 0");
 		}
+	}
+
+	public boolean isEntregado() {
+		return entregado;
+	}
+
+	public void setEntregado(boolean entregado) {
+		this.entregado = entregado;
 	}
 
 	//Metodos

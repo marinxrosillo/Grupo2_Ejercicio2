@@ -1,6 +1,5 @@
 package concesionario.clases;
 
-import java.util.Objects;
 
 import concesionario.interfaces.Entregable;
 
@@ -10,8 +9,8 @@ public class Camion extends Vehiculo implements Entregable{
 	private double carga;
 
 	//Constructor
-	public Camion(String marca, String modelo, String anyo, int precio, double carga) {
-		super(marca, modelo, anyo, precio);
+	public Camion(String marca, String modelo, String anyo, int precio, double carga, boolean entregado) {
+		super(marca, modelo, anyo, precio, entregado);
 		setCarga(carga);
 	}
 
@@ -46,9 +45,17 @@ public class Camion extends Vehiculo implements Entregable{
 	}
 
 	@Override
-	public void entregar() {
-		System.out.println("Camión entregado");
-		
+	public void entregar(Cliente cliente) {
+	    for (Vehiculo c : cliente.getVehiculosComprados()) {
+	        if (c.equals(this)) {
+	            if (!this.isEntregado()) {
+	                this.setEntregado(true);
+	                System.out.println("El camión " + this + " ha sido entregado.");
+	            } else {
+	                System.out.println("El camión " + this + " ya estaba entregado.");
+	            }
+	        }
+	    }
 	}
 	
 	
