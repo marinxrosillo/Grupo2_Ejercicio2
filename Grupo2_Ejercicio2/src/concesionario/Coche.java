@@ -30,7 +30,20 @@ public class Coche extends Vehiculo {
 	public void setCapacidad(int capacidad) {
 		this.capacidad = capacidad;
 	}
+	@Override
+	public String toString() {
+		return "Coche [tipo=" + this.tipo + ", capacidad=" + this.capacidad +"marca= + " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + "]";
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		Coche nuevo = (Coche) obj;
+		boolean result = false;
+		if(super.equals(nuevo) && this.capacidad == nuevo.capacidad && this.tipo.equals(nuevo)) {
+			result = true;
+		}
+		return result;
+	}
 	
 	
 	
