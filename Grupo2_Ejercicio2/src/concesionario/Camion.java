@@ -2,7 +2,7 @@ package concesionario;
 
 import java.util.Objects;
 
-public class Camion extends Vehiculo{
+public class Camion extends Vehiculo implements Entregable{
 	
 	//Atributos
 	private double carga;
@@ -37,6 +37,12 @@ public class Camion extends Vehiculo{
 			result = true;
 		}
 		return result;
+	}
+
+	@Override
+	public void entregar() {
+		System.out.println("Camión entregado");
+		
 	}
 	
 	
