@@ -1,4 +1,4 @@
-package concesionario;
+package concesionario.clases;
 
 public class Vehiculo implements Comparable<Vehiculo> {
 
