@@ -1,7 +1,5 @@
 package concesionario;
 
-import java.util.Objects;
-
 public class Vehiculo implements Comparable<Vehiculo> {
 
 	//Atributos
@@ -13,10 +11,10 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	//Constructor
 	public Vehiculo(String marca, String modelo, String anyo, int precio) {
 		super();
-		this.marca = marca;
-		this.modelo = modelo;
-		this.anyo = anyo;
-		this.precio = precio;
+		setMarca(marca);
+		setModelo(modelo);
+		setAnyo(anyo);
+		setPrecio(precio);
 	}
 
 	//Getters y Setters
@@ -25,7 +23,11 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	}
 
 	public void setMarca(String marca) {
-		this.marca = marca;
+		if (!marca.isEmpty()) {
+			this.marca = marca;
+		} else {
+			throw new ArithmeticException("ERROR. La marca no puede estar vacía.");
+		}
 	}
 
 	public String getModelo() {
@@ -33,7 +35,11 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	}
 
 	public void setModelo(String modelo) {
-		this.modelo = modelo;
+		if (!modelo.isEmpty()) {
+			this.modelo = modelo;
+		} else {
+			throw new ArithmeticException("ERROR. El modelo no puede estar vacía.");
+		}
 	}
 
 	public String getAnyo() {
@@ -41,7 +47,11 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	}
 
 	public void setAnyo(String anyo) {
-		this.anyo = anyo;
+		if (!anyo.isEmpty()) {
+			this.anyo = anyo;
+		} else {
+			throw new ArithmeticException("ERROR. El año no puede estar vacía.");
+		}
 	}
 
 	public int getPrecio() {
@@ -49,13 +59,17 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	}
 
 	public void setPrecio(int precio) {
-		this.precio = precio;
+		if (precio > 0) {
+			this.precio = precio;
+		} else {
+			throw new ArithmeticException("ERROR. El precio no puede ser inferior a 0");
+		}
 	}
 
 	//Metodos
 	@Override
 	public int compareTo(Vehiculo o) {
-		return this.getPrecio() - o.getPrecio();
+		return o.getPrecio() - this.getPrecio();
 	}
 
 	@Override
@@ -74,5 +88,4 @@ public class Vehiculo implements Comparable<Vehiculo> {
 		}
 		return result;
 	}
-	
 }
