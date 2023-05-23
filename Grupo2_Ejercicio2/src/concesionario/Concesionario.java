@@ -1,6 +1,5 @@
 package concesionario;
 
-import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -15,5 +14,13 @@ public class Concesionario {
 		this.inventario = new TreeSet<>();
 	}
 
+	//Getter y setter
+	public Set<Vehiculo> getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(Set<Vehiculo> inventario) {
+		this.inventario = inventario;
+	}
 	
 }
