@@ -9,8 +9,8 @@ public class Camion extends Vehiculo implements Entregable{
 	private double carga;
 
 	//Constructor
-	public Camion(String marca, String modelo, String anyo, int precio, double carga, boolean disponible) {
-		super(marca, modelo, anyo, precio, disponible);
+	public Camion(String marca, String modelo, String anyo, int precio, double carga) {
+		super(marca, modelo, anyo, precio);
 		setCarga(carga);
 	}
 
@@ -26,13 +26,12 @@ public class Camion extends Vehiculo implements Entregable{
 			throw new ArithmeticException("ERROR. La carga no puede ser inferior a 0");
 		}
 	}
+	
 	//Métodos
-
 	@Override
 	public String toString() {
-		return "Camion [carga=" + this.carga +"marca= + " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + "]";
+		return "Camion [carga=" + this.carga +"marca= + " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + ", entregado=" + super.isEntregado() + ", disponible=" + super.isDisponible() + "]";
 	}
-
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -46,17 +45,15 @@ public class Camion extends Vehiculo implements Entregable{
 
 	@Override
 	public void entregar(Cliente cliente) {
-	    for (Vehiculo c : cliente.getVehiculosComprados()) {
-	        if (c.equals(this)) {
-	            if (!this.isDisponible()) {
-	                this.setDisponible(true);
+	    for (Vehiculo camion : cliente.getVehiculosComprados()) {
+	        if (camion.equals(this)) {
+	            if (!this.isEntregado() && !this.isDisponible()) {
+	                setEntregado(true);
 	                System.out.println("El camión " + this + " ha sido entregado.");
 	            } else {
 	                System.out.println("El camión " + this + " ya estaba entregado.");
 	            }
 	        }
 	    }
-	}
-	
-	
+	}		
 }

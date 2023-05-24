@@ -79,5 +79,4 @@ public class Cliente implements Comparable<Cliente> {
 	public void comprarCoche (Vehiculo ve) {
 		this.vehiculosComprados.add(ve);
 	}
-	
 }

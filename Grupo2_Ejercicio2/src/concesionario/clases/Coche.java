@@ -9,8 +9,8 @@ public class Coche extends Vehiculo implements Entregable{
 	private int capacidad;
 	
 	//Constructor
-	public Coche(String marca, String modelo, String anyo, int precio, String tipo, int capacidad, boolean disponible) {
-		super(marca, modelo, anyo, precio, disponible);
+	public Coche(String marca, String modelo, String anyo, int precio, String tipo, int capacidad) {
+		super(marca, modelo, anyo, precio);
 		setTipo(tipo);
 		setCapacidad(capacidad);
 	}
@@ -42,7 +42,7 @@ public class Coche extends Vehiculo implements Entregable{
 	
 	@Override
 	public String toString() {
-		return "Coche [tipo=" + this.tipo + ", capacidad=" + this.capacidad +"marca= + " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + "]";
+		return "Coche [tipo=" + this.tipo + ", capacidad=" + this.capacidad +"marca= + " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + ", entregado=" + super.isEntregado() + ", disponible=" + super.isDisponible() + "]";
 	}
 
 	@Override
@@ -59,8 +59,8 @@ public class Coche extends Vehiculo implements Entregable{
 	public void entregar(Cliente cliente) {
 	    for (Vehiculo coche : cliente.getVehiculosComprados()) {
 	        if (coche.equals(this)) {
-	            if (!this.isDisponible()) {
-	                this.setDisponible(true);
+	            if (!this.isEntregado() && !this.isDisponible()) {
+	                setEntregado(true);
 	                System.out.println("El coche " + this + " ha sido entregado.");
 	            } else {
 	                System.out.println("El coche " + this + " ya estaba entregado.");
@@ -68,13 +68,4 @@ public class Coche extends Vehiculo implements Entregable{
 	        }
 	    }
 	}
-	
-	
-
-	
-	
-	
-	
-	
-
 }

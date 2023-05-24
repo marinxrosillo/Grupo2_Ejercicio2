@@ -7,15 +7,15 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	private String modelo;
 	private String anyo;
 	private int precio;
+	private boolean entregado = false;
 	private boolean disponible = true;
 	
 	//Constructor
-	public Vehiculo(String marca, String modelo, String anyo, int precio, boolean disponible) {
+	public Vehiculo(String marca, String modelo, String anyo, int precio) {
 		setMarca(marca);
 		setModelo(modelo);
 		setAnyo(anyo);
 		setPrecio(precio);
-		this.disponible = disponible;
 	}
 
 	//Getters y Setters
@@ -80,11 +80,11 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	public int compareTo(Vehiculo o) {
 		return o.getPrecio() - this.getPrecio();
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Vehiculo [marca=" + this.marca + ", modelo=" + this.modelo + ", anyo=" + this.anyo + ", precio=" + this.precio
-				+ ", disponible=" + this.disponible + "]";
+				+ ", entregado=" + this.entregado + ", disponible=" + this.disponible + "]";
 	}
 
 	@Override
@@ -97,5 +97,13 @@ public class Vehiculo implements Comparable<Vehiculo> {
 			result = true;
 		}
 		return result;
+	}
+
+	public boolean isEntregado() {
+		return entregado;
+	}
+
+	public void setEntregado(boolean entregado) {
+		this.entregado = entregado;
 	}
 }
