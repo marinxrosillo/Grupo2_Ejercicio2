@@ -30,7 +30,7 @@ public class Camion extends Vehiculo implements Entregable{
 	//Métodos
 	@Override
 	public String toString() {
-		return "Camion [carga=" + this.carga +"marca= + " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + ", entregado=" + super.isEntregado() + ", disponible=" + super.isDisponible() + "]";
+		return "Camion [carga=" + this.carga + ", marca= " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + ", entregado=" + super.isEntregado() + ", disponible=" + super.isDisponible() + "]";
 	}
 	
 	@Override

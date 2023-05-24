@@ -101,9 +101,9 @@ public class Concesionario {
 	//Metodo vender
 	public void vender(Vehiculo vehiculo, Cliente cliente) {
 		for(int i = 0; i < inventario.size(); i++) {
-			if (vehiculo.equals(i) && vehiculo.isDisponible()) {
+			if (inventario.contains(vehiculo) && vehiculo.isDisponible()) {
 				vehiculo.setDisponible(false);
-				cliente.comprarCoche(vehiculo);
+				cliente.comprarVehiculo(vehiculo);
 				inventario.remove(vehiculo);
 			} else {
 				throw new ArithmeticException("ERROR. No se puede vender ese vehículo.");

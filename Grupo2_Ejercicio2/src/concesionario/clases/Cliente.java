@@ -76,7 +76,7 @@ public class Cliente implements Comparable<Cliente> {
 	}  
 	
 	//Metodo comprar
-	public void comprarCoche (Vehiculo ve) {
-		this.vehiculosComprados.add(ve);
+	public void comprarVehiculo (Vehiculo vehiculo) {
+		this.vehiculosComprados.add(vehiculo);
 	}
 }

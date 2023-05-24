@@ -42,7 +42,7 @@ public class Coche extends Vehiculo implements Entregable{
 	
 	@Override
 	public String toString() {
-		return "Coche [tipo=" + this.tipo + ", capacidad=" + this.capacidad +"marca= + " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + ", entregado=" + super.isEntregado() + ", disponible=" + super.isDisponible() + "]";
+		return "Coche [tipo=" + this.tipo + ", capacidad=" + this.capacidad + ", marca= " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + ", entregado=" + super.isEntregado() + ", disponible=" + super.isDisponible() + "]";
 	}
 
 	@Override
