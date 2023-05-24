@@ -66,7 +66,7 @@ public class Concesionario {
 		int precioMasBarato = Integer.MAX_VALUE;
 
 		for (Vehiculo vehiculo : inventario) {
-			if (!vehiculo.isEntregado() && vehiculo.getPrecio() < precioMasBarato) {
+			if (!vehiculo.isDisponible() && vehiculo.getPrecio() < precioMasBarato) {
 		            vehiculoMasBarato = vehiculo;
 		            precioMasBarato = vehiculo.getPrecio();
 		    }
@@ -80,7 +80,7 @@ public class Concesionario {
 		int precioMasCaro = 0;
 
 		for (Vehiculo vehiculo : inventario) {
-			if (!vehiculo.isEntregado() && vehiculo.getPrecio() > precioMasCaro) {
+			if (!vehiculo.isDisponible() && vehiculo.getPrecio() > precioMasCaro) {
 				vehiculoMasCaro = vehiculo;
 				precioMasCaro = vehiculo.getPrecio();
 		        }
@@ -100,9 +100,14 @@ public class Concesionario {
 	
 	//Metodo vender
 	public void vender(Vehiculo vehiculo, Cliente cliente) {
-		if (!) {
-		inventario.remove(vehiculo); 
+		for(int i = 0; i < inventario.size(); i++) {
+			if (vehiculo.equals(i) && vehiculo.isDisponible()) {
+				vehiculo.setDisponible(false);
+				cliente.comprarCoche(vehiculo);
+				inventario.remove(vehiculo);
+			} else {
+				throw new ArithmeticException("ERROR. No se puede vender ese vehículo.");
+			}
 		}
-		
 	}
 }
