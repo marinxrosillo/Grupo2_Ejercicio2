@@ -7,7 +7,7 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	private String modelo;
 	private String anyo;
 	private int precio;
-	private boolean disponible;
+	private boolean disponible = true;
 	
 	//Constructor
 	public Vehiculo(String marca, String modelo, String anyo, int precio, boolean disponible) {
@@ -83,7 +83,8 @@ public class Vehiculo implements Comparable<Vehiculo> {
 
 	@Override
 	public String toString() {
-		return "Vehiculo [marca=" + this.marca + ", modelo=" + this.modelo + ", anyo=" + this.anyo + ", precio=" + this.precio + "]";
+		return "Vehiculo [marca=" + this.marca + ", modelo=" + this.modelo + ", anyo=" + this.anyo + ", precio=" + this.precio
+				+ ", disponible=" + this.disponible + "]";
 	}
 
 	@Override
