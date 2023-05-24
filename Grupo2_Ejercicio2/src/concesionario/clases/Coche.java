@@ -13,7 +13,6 @@ public class Coche extends Vehiculo implements Entregable{
 		super(marca, modelo, anyo, precio, entregado);
 		setTipo(tipo);
 		setCapacidad(capacidad);
-		
 	}
 
 	//Getters y Setters
@@ -40,6 +39,7 @@ public class Coche extends Vehiculo implements Entregable{
 			throw new ArithmeticException("ERROR. La capacidad no puede ser inferior a 0");
 		}
 	}
+	
 	@Override
 	public String toString() {
 		return "Coche [tipo=" + this.tipo + ", capacidad=" + this.capacidad +"marca= + " + super.getMarca() + ", modelo=" + super.getModelo() + ", anyo=" + super.getAnyo() + ", precio=" + super.getPrecio() + "]";
@@ -55,11 +55,10 @@ public class Coche extends Vehiculo implements Entregable{
 		return result;
 	}
 
-	
 	@Override
 	public void entregar(Cliente cliente) {
-	    for (Vehiculo c : cliente.getVehiculosComprados()) {
-	        if (c.equals(this)) {
+	    for (Vehiculo coche : cliente.getVehiculosComprados()) {
+	        if (coche.equals(this)) {
 	            if (!this.isEntregado()) {
 	                this.setEntregado(true);
 	                System.out.println("El coche " + this + " ha sido entregado.");

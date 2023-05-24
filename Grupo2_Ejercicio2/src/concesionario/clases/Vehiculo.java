@@ -7,16 +7,15 @@ public class Vehiculo implements Comparable<Vehiculo> {
 	private String modelo;
 	private String anyo;
 	private int precio;
-	private boolean entregado;
+	private boolean disponible;
 	
 	//Constructor
-	public Vehiculo(String marca, String modelo, String anyo, int precio, boolean entregado) {
-		super();
+	public Vehiculo(String marca, String modelo, String anyo, int precio, boolean disponible) {
 		setMarca(marca);
 		setModelo(modelo);
 		setAnyo(anyo);
 		setPrecio(precio);
-		this.entregado = entregado;
+		this.disponible = disponible;
 	}
 
 	//Getters y Setters
@@ -68,12 +67,12 @@ public class Vehiculo implements Comparable<Vehiculo> {
 		}
 	}
 
-	public boolean isEntregado() {
-		return entregado;
+	public boolean isDisponible() {
+		return disponible;
 	}
 
-	public void setEntregado(boolean entregado) {
-		this.entregado = entregado;
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
 	}
 
 	//Metodos
@@ -92,8 +91,8 @@ public class Vehiculo implements Comparable<Vehiculo> {
 		Vehiculo nuevo = (Vehiculo) obj;
 		boolean result = false;
 		
-		if(this.getMarca().equals(nuevo) && this.getModelo().equals(nuevo) 
-				&& this.anyo.equals(nuevo) && this.getPrecio() == nuevo.getPrecio()) {
+		if(this.getMarca().equals(nuevo.getMarca()) && this.getModelo().equals(nuevo.getModelo()) 
+				&& this.anyo.equals(nuevo.getAnyo()) && this.getPrecio() == nuevo.getPrecio()) {
 			result = true;
 		}
 		return result;

@@ -97,4 +97,12 @@ public class Concesionario {
 
 		System.out.println("Vehículo más caro: " + vehiculoMasCaro);
 	}
+	
+	//Metodo vender
+	public void vender(Vehiculo vehiculo, Cliente cliente) {
+		if (!) {
+		inventario.remove(vehiculo); 
+		}
+		
+	}
 }
