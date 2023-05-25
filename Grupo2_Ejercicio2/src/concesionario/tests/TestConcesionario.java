@@ -1,10 +1,5 @@
 package concesionario.tests;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 import concesionario.clases.*;
 
 public class TestConcesionario {
@@ -30,23 +25,36 @@ public class TestConcesionario {
 		concesionario.agregarVehiculo(vehiculo5);
 		concesionario.agregarVehiculo(coche1);
 		
+		System.out.println("MOSTRAMOS LOS VEHICULOS ORDENADOS POR PRECIO: ");
 		concesionario.mostrarVehiculosOrdenadosPrecio();
+		System.out.println("---------------------------------------------------------------------------------------------------------");
 		
+		System.out.println("MOSTRAMOS EL VEHICULO MÁS BARATO Y EL MÁS CARO: ");
 		concesionario.mostrarVehiculosCaroBarato();
+		System.out.println("---------------------------------------------------------------------------------------------------------");
 		
 		Cliente cliente = new Cliente("Vladi", "El Viso del Alcor");
 		
+		System.out.println("VENDEMOS VEHICULOS: ");
 		concesionario.vender(vehiculo1, cliente);
-		
 		concesionario.vender(coche1, cliente);
+		System.out.println("---------------------------------------------------------------------------------------------------------");
 		
+		System.out.println("MOSTRAMOS LA LISTA DE VEHICULOS DISPONIBLES: ");
 		concesionario.mostrarVehiculosOrdenadosPrecio();
+		System.out.println("---------------------------------------------------------------------------------------------------------");
 		
+		System.out.println("ENTREGAMOS VEHICULOS: ");
 		coche1.entregar(cliente);
+		System.out.println("---------------------------------------------------------------------------------------------------------");
 		
-		concesionario.buscarVehiculos("Nissan", "Micra", "2019");
+//		System.out.println("BUSCAMOS VEHICULOS CON FILTROS: ");
+//		concesionario.buscarPorMarca("Nissan");
+//		concesionario.buscarPorModelo("Focus");
+//		concesionario.buscarPorAnyo("2022");
+//		System.out.println("---------------------------------------------------------------------------------------------------------");
 		
-		
-		
+		System.out.println("BUSCAMOS VEHICULOS POR MARCA, MODELO Y AÑO: ");
+		concesionario.buscarGeneral("Nissan", "Micra", "2019");
 	}
 }
