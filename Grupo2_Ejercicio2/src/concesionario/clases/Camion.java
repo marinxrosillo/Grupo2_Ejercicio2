@@ -49,9 +49,9 @@ public class Camion extends Vehiculo implements Entregable{
 	        if (camion.equals(this)) {
 	            if (!this.isEntregado() && !this.isDisponible()) {
 	                setEntregado(true);
-	                System.out.println("El camión " + this + " ha sido entregado.");
+	                System.out.println("El camión " + this.getMarca() + " ha sido entregado al Cliente " + cliente.getNombre());
 	            } else {
-	                System.out.println("El camión " + this + " ya estaba entregado.");
+	                System.out.println("El camión " + this.getMarca() + " ya estaba entregado al Cliente " + cliente.getNombre());
 	            }
 	        }
 	    }

@@ -61,9 +61,9 @@ public class Coche extends Vehiculo implements Entregable{
 	        if (coche.equals(this)) {
 	            if (!this.isEntregado() && !this.isDisponible()) {
 	                setEntregado(true);
-	                System.out.println("El coche " + this + " ha sido entregado.");
+	                System.out.println("El coche " + this.getMarca() + " ha sido entregado al Cliente " + cliente.getNombre());
 	            } else {
-	                System.out.println("El coche " + this + " ya estaba entregado.");
+	                System.out.println("El coche " + this.getMarca() + " ya estaba entregado al Cliente " + cliente.getNombre());
 	            }
 	        }
 	    }

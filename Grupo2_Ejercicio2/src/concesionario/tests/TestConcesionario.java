@@ -5,19 +5,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import concesionario.clases.Camion;
-import concesionario.clases.Cliente;
-import concesionario.clases.Coche;
-import concesionario.clases.Concesionario;
-import concesionario.clases.Vehiculo;
+import concesionario.clases.*;
 
 public class TestConcesionario {
 
 	public static void main(String[] args) {
 		
-		Set<Vehiculo> inventarioVehiculos = new TreeSet<Vehiculo>();
-		
-		Concesionario concesionario = new Concesionario(inventarioVehiculos);
+		Concesionario concesionario = new Concesionario();
 		
 		Vehiculo vehiculo1 = new Vehiculo("Ford", "Focus", "2003", 750);
 		Vehiculo vehiculo2 = new Vehiculo("Nissan", "Micra", "2019", 13000);
@@ -27,23 +21,32 @@ public class TestConcesionario {
 		
 		Vehiculo vehiculo5 = new Coche("Skoda", "Fabia", "2018", 9000, "Berlina", 5);
 		
-		inventarioVehiculos.add(vehiculo1);
-		inventarioVehiculos.add(vehiculo2);
-		inventarioVehiculos.add(vehiculo3);
-		inventarioVehiculos.add(vehiculo4);
-		inventarioVehiculos.add(vehiculo5);
+		Coche coche1 = new Coche("Audi", "A1", "2018", 9000, "Berlina", 5);
 		
-		List<Vehiculo> vehiculosComprados = new ArrayList<Vehiculo>();
+		concesionario.agregarVehiculo(vehiculo1);
+		concesionario.agregarVehiculo(vehiculo2);
+		concesionario.agregarVehiculo(vehiculo3);
+		concesionario.agregarVehiculo(vehiculo4);
+		concesionario.agregarVehiculo(vehiculo5);
+		concesionario.agregarVehiculo(coche1);
+		
+		concesionario.mostrarVehiculosOrdenadosPrecio();
+		
+		concesionario.mostrarVehiculosCaroBarato();
 		
 		Cliente cliente = new Cliente("Vladi", "El Viso del Alcor");
 		
-		for(Vehiculo vehiculo : inventarioVehiculos) {
-			System.out.println(vehiculo);
-		}
-		
 		concesionario.vender(vehiculo1, cliente);
 		
+		concesionario.vender(coche1, cliente);
 		
-		System.out.println(vehiculo1.toString());
+		concesionario.mostrarVehiculosOrdenadosPrecio();
+		
+		coche1.entregar(cliente);
+		
+		concesionario.buscarVehiculos("Nissan", "Micra", "2019");
+		
+		
+		
 	}
 }

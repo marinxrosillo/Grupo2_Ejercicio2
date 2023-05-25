@@ -12,7 +12,6 @@ public class Cliente implements Comparable<Cliente> {
 	
 	//Constructor
 	public Cliente(String nombre, String direccion) {
-		super();
 		setNombre(nombre);
 		setDireccion(direccion);
 		this.vehiculosComprados = new LinkedList<>();

@@ -13,8 +13,7 @@ public class Concesionario {
 	private Set<Vehiculo> inventario;
 
 	//Constructor
-	public Concesionario(Set<Vehiculo> inventario) {
-		super();
+	public Concesionario() {
 		this.inventario = new TreeSet<>();
 	}
 
@@ -45,7 +44,7 @@ public class Concesionario {
 	}		
 		
 	//Metodo para buscar vehiculos por marca, modelo y anyo
-	public List<Vehiculo> buscarVehiculos(String marca, String modelo, String anyo) {
+	public void buscarVehiculos(String marca, String modelo, String anyo) {
 		List<Vehiculo> vehiculosEncontrados = new ArrayList<>();
 
 		for (Vehiculo vehiculo : inventario) {
@@ -53,11 +52,12 @@ public class Concesionario {
 					vehiculo.getModelo().equalsIgnoreCase(modelo) &&
 						vehiculo.getAnyo().equals(anyo)) {
 		        	vehiculosEncontrados.add(vehiculo);
+		        	System.out.println("Se ha encontrado el " + vehiculo);
+		        	break;
 		    } else  {
-		    	throw new ArithmeticException("ERROR. No se ha encontrado el vehículo");
+		    	System.out.println("No se ha encontrado el " + vehiculo);
 		    }
 		}
-		return vehiculosEncontrados;
 	}
 		
 	//Metodo para mostrar el vehiculo mas barato
@@ -100,14 +100,13 @@ public class Concesionario {
 	
 	//Metodo vender
 	public void vender(Vehiculo vehiculo, Cliente cliente) {
-		for(int i = 0; i < inventario.size(); i++) {
-			if (inventario.contains(vehiculo) && vehiculo.isDisponible()) {
-				vehiculo.setDisponible(false);
-				cliente.comprarVehiculo(vehiculo);
-				inventario.remove(vehiculo);
-			} else {
-				throw new ArithmeticException("ERROR. No se puede vender ese vehículo.");
-			}
-		}
+		if (inventario.contains(vehiculo) && vehiculo.isDisponible()) {
+			vehiculo.setDisponible(false);
+			cliente.comprarVehiculo(vehiculo);
+			inventario.remove(vehiculo);
+			System.out.println("El Vehiculo " + vehiculo.getMarca() + " ha sido vendido al Cliente " + cliente.getNombre());
+		} else {
+			throw new ArithmeticException("ERROR. No se puede vender ese vehículo.");
+		}	
 	}
 }
